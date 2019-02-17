@@ -2,9 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
+## Small information.
+To Draw the line, `html5 canvas` has been used.
+
+## If difficulty in understanding what's happening in the app?
+To give more clear picture of whats happening inside the code, code commenting has been done. Please go through it.
+
 ## Development server
 
-Clone this repository to your local system. Change your directory to this application folder in which you have cloned the code via command line. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Clone this repository to your local system from `develop branch`. Change your directory to this application folder in which you have cloned the code via command line. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
