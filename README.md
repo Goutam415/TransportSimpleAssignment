@@ -10,7 +10,10 @@ To give more clear picture of whats happening inside the code, code commenting h
 
 ## Development server
 
-Clone this repository to your local system from `develop branch`. Change your directory to this application folder in which you have cloned the code via command line. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Clone this repository to your local system from `develop branch`.
+Change your directory to this application folder in which you have cloned the code via command line.
+Run `npm install` to install the dependencies. without running this command the project will not run.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
