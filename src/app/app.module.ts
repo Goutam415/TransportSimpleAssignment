@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {MatButtonModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatInputModule, MatTooltipModule} from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms'
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     AppRoutingModule,
     MatButtonModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

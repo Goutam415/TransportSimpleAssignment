@@ -1,36 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="row">
-  <div class="col-6">
-    <form [formGroup]="locations">
-      <div class="row" formArrayName="locations" 
-        *ngFor="let location of locations.get('locations')['controls']; let locationIndex = index;">
-        <ng-container [formGroupName]="locationIndex">
-          <div class="col-4">
-            <mat-form-field class="mat-form">
-              <input matInput formControlName="pickupLocation" placeholder="Pickup location" required>
-            </mat-form-field>
-          </div>
-          <div class="col-4">
-            <mat-form-field class="mat-form">
-              <input matInput formControlName="dropoffLocation" placeholder="Dropoff location" (focusout)="computeLineDesign()" required>
-            </mat-form-field>
-          </div>
-          <div class="col-4">
-            <div class="col-5">
-                <button mat-button (click)="addLocation()" [disabled]="location.invalid">Add</button>
+<div class="main-locations-container">
+  <div class="col-6 locations-input-container">
+    <div class="auto-grow-container">
+      <form [formGroup]="locations">
+        <div class="row" formArrayName="locations" 
+          *ngFor="let location of locations.get('locations')['controls']; let locationIndex = index;">
+          <ng-container [formGroupName]="locationIndex">
+            <div class="col-4">
+              <mat-form-field class="mat-form">
+                <input matInput formControlName="pickupLocation" placeholder="Pickup location" required>
+
+                <mat-error *ngIf="location.get('pickupLocation').invalid">
+                  Please enter pickup location.
+                </mat-error>
+              </mat-form-field>
             </div>
-            <div class="col-5">
-              <button mat-button (click)="deleteLocation(locationIndex)">delete</button>
+            <div class="col-4">
+              <mat-form-field class="mat-form">
+                <input matInput formControlName="dropoffLocation" placeholder="Dropoff location" required>
+
+                <mat-error *ngIf="location.get('pickupLocation').invalid">
+                    Please enter dropoff location.
+                  </mat-error>
+              </mat-form-field>
             </div>
-          </div>
-        </ng-container>
-      </div>
-      <div class="row">
-        <div>
-          <button (click)="computeLineDesign()"></button>
+            <div class="col-4">
+              <div class="col-5" *ngIf="locations.get('locations').length > 1">
+                <button mat-button matTooltip="Delete Route"  (click)="deleteRoute(locationIndex)">
+                    <i class="material-icons">delete</i>
+                </button>
+              </div>
+              <div class="col-5" *ngIf="locationIndex === (locations.get('locations').length - 1)">
+                  <button mat-button (click)="addRoute()"
+                  matTooltip="Add Route"
+                  [disabled]="location.invalid">
+                      <i class="material-icons">add</i>
+                  </button>
+              </div>
+            </div>
+          </ng-container>
         </div>
+      </form>
+    </div>
+    <div class="row footer">
+      <div class="fill-space"></div>
+      <div>
+        <button [ngClass]="locations.invalid ? 'disabled' : 'btn-property'" [disabled]="locations.invalid" (click)="computeLineDesign()" mat-button>
+          Get Route Map
+        </button>
       </div>
-    </form>
+    </div>
   </div>
   <div class="col-6">
     <canvas id="graph" width="400" height="200"></canvas>
